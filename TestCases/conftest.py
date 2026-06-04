@@ -7,7 +7,10 @@ from selenium.webdriver.common.keys import Keys
 @pytest.fixture()
 def driver():
     opts = Options()
-    opts.add_experimental_option('detach', True)
+    opts.add_argument('--headless')
+    opts.add_argument('--no-sandbox')
+    opts.add_argument('--disable-dev-shm-usage')
+    # opts.add_experimental_option('detach', True)
     opts.add_experimental_option('prefs', {
     'credentials_enable_service': False,
     'profile.password_manager_enabled': False,
